@@ -3,15 +3,22 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon --exec babel-node src/index.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js, css, json}": ["eslint src --fix", "git add"]
+    "*.{js, css, json}": [
+      "eslint src --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
     "eslint": "^4.13.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
