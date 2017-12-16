@@ -2,6 +2,7 @@ import Block from './Block';
 
 class Blockchain {
   constructor() {
+    this.difficulty = 1;
     this.chain = [new Block(0, '01/01/2017', 'Genesis block', '0')];
   }
 
@@ -15,7 +16,7 @@ class Blockchain {
     const newBlock = block;
 
     newBlock.previousHash = this.getLatestBlock().hash;
-    newBlock.hash = newBlock.calculateHash();
+    newBlock.mineBlock(this.difficulty);
 
     this.chain.push(newBlock);
   }
